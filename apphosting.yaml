@@ -1,0 +1,4 @@
+name: quizy
+region: europe-west4
+scaling:
+  max_instances: 1
