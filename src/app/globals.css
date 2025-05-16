@@ -1,0 +1,167 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 220 15% 25%; /* Dark Cool Gray */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 220 15% 25%;
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 220 15% 25%;
+
+    --primary: 215 70% 50%; /* Modern Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 220 15% 96%; /* Very Light Gray */
+    --secondary-foreground: 220 10% 40%; /* Medium Gray */
+
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 55%; /* Medium Gray */
+
+    --accent: 170 75% 40%; /* Vibrant Teal */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 75% 55%; /* Modern Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 220 15% 90%; /* Light Gray Border */
+    --input: 220 15% 90%;
+    --ring: 215 70% 60%; /* Slightly Lighter Primary for Focus Rings */
+
+    --radius: 0.75rem; /* Slightly more rounded */
+
+    /* Updated Chart Colors */
+    --chart-1: 215 70% 50%; /* Primary Blue */
+    --chart-2: 215 70% 70%; /* Lighter Primary Blue */
+    --chart-3: 170 75% 40%; /* Accent Teal */
+    --chart-4: 170 65% 60%; /* Lighter Accent Teal */
+    --chart-5: 220 15% 55%; /* Medium Gray from Palette */
+
+    /* Existing sidebar colors - kept for neutrality */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 10%; /* Very Dark Blue/Gray */
+    --foreground: 220 10% 85%; /* Light Gray */
+
+    --card: 220 15% 15%; /* Darker, slightly off-background */
+    --card-foreground: 220 10% 85%;
+
+    --popover: 220 15% 15%;
+    --popover-foreground: 220 10% 85%;
+
+    --primary: 215 70% 60%; /* Brighter Blue for Dark Mode */
+    --primary-foreground: 220 10% 15%; /* Dark for contrast on Primary */
+
+    --secondary: 220 15% 20%; /* Darker Gray */
+    --secondary-foreground: 220 10% 80%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 170 70% 50%; /* Brighter Teal for Dark Mode */
+    --accent-foreground: 220 10% 10%; /* Dark for contrast on Accent */
+
+    --destructive: 0 65% 50%; /* Adjusted Red for Dark Mode */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 25%; /* Darker Border */
+    --input: 220 15% 25%;
+    --ring: 215 70% 65%; /* Lighter Primary for Focus Rings */
+    
+    /* Updated Chart Colors for Dark Mode */
+    --chart-1: 215 70% 60%; /* Primary Blue - Dark */
+    --chart-2: 215 65% 75%; /* Lighter Primary Blue - Dark */
+    --chart-3: 170 70% 50%; /* Accent Teal - Dark */
+    --chart-4: 170 60% 65%; /* Lighter Accent Teal - Dark */
+    --chart-5: 220 10% 55%; /* Medium Gray from Palette - Dark */
+
+    /* Existing sidebar colors - kept for neutrality */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/quizwiz-72ij0.firebasestorage.app/o/images%2Fabstract-soft-flowing-shapes-blue-gradient-phone-wallpaper-elegant-image-smooth-serene-perfect-calming-320328254.webp?alt=media&token=612c023f-942a-4eb4-a554-09768440b58d');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes floatAcrossViewport {
+    0% {
+      transform: translateX(-150px) translateY(0px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    20% { 
+      transform: translateX(20vw) translateY(-15px);
+    }
+    40% {
+      transform: translateX(40vw) translateY(10px);
+    }
+    60% {
+      transform: translateX(60vw) translateY(-10px);
+    }
+    80% {
+      transform: translateX(80vw) translateY(5px);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(110vw) translateY(0px);
+      opacity: 0;
+    }
+  }
+}
+
+@layer utilities {
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}
