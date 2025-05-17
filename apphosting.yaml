@@ -1,4 +1,7 @@
-name: quizy
-region: europe-west4
-scaling:
-  max_instances: 1
+runtime: nodejs20
+
+env: {
+  "GEMINI_API_KEY": "AIzaSyB3qHo7sw8dQq51j0uD6E-oApLLFzpRT6g",
+  "BACKEND_URL": "https://quizy-21585103670.europe-west1.run.app/",
+  "BUCKET_NAME": "quizwiz-72ij0.appspot.com"
+}
