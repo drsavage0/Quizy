@@ -1,9 +1,0 @@
-runtime: nodejs20
-
-env:
-  - name: GEMINI_API_KEY
-    value: "AIzaSyB3qHo7sw8dQq51j0uD6E-oApLLFzpRT6g"
-  - name: BACKEND_URL
-    value: "https://quizy-21585103670.europe-west1.run.app/"
-  - name: BUCKET_NAME
-    value: "quizwiz-72ij0.appspot.com"
