@@ -1,12 +1,12 @@
-
 import type { Metadata } from "next";
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import AppHeader from "@/components/shared/AppHeader";
-import FloatingIconsBackground from "@/components/shared/FloatingIconsBackground"; // Import the new component
-import AdBanner from "@/components/shared/AdBanner"; // Import the AdBanner component
+import FloatingIconsBackground from "@/components/shared/FloatingIconsBackground";
+import AdBanner from "@/components/shared/AdBanner";
+import Script from "next/script"; // Added this for Ads
 
 export const metadata: Metadata = {
   title: "Quizy - Test Your Knowledge!",
@@ -19,15 +19,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // The dir and lang attributes will be set by the LanguageProvider via useEffect
-    <html lang="en" dir="ltr"> 
-      {/* The bg-background class is kept as a fallback if the image doesn't load */}
+    <html lang="en" dir="ltr">
+      <head>
+        {/* This is the Google AdSense Connection Code */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6735324159548317"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased text-foreground min-h-screen flex flex-col relative overflow-x-hidden`}>
-        <FloatingIconsBackground /> {/* Floating icons will be on top of the body background image */}
+        <FloatingIconsBackground />
         <Providers>
-          <AppHeader /> {/* AppHeader has z-50 */}
-          <AdBanner /> {/* Add the AdBanner component here */}
-          <main className="flex-grow container mx-auto px-4 py-8 animate-fadeIn z-10 relative"> {/* Ensure main content has a higher z-index or is relative */}
+          <AppHeader />
+          <AdBanner />
+          <main className="flex-grow container mx-auto px-4 py-8 animate-fadeIn z-10 relative">
             {children}
           </main>
         </Providers>
